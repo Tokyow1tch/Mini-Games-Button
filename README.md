@@ -1,11 +1,25 @@
-# Mini Games — Nicoly Ferreira
+# Mini Games
 
-Projetos front-end criados para praticar JavaScript, manipulação do DOM, eventos, animações CSS, lógica de estados e armazenamento local.
+Criei este projeto como uma forma mais divertida de praticar JavaScript e experimentar diferentes interações no navegador.
+
+A ideia foi desenvolver dois mini jogos simples, trabalhando principalmente com eventos do mouse, manipulação do DOM e animações.
 
 ## Jogos
-- O Botão Proibido
-- Não Aperte o Botão Vermelho
 
-Projetos com proposta descontraída, focados em interação e experimentação.
+### O Botão Proibido
+Um pequeno desafio em que o botão tenta escapar do usuário, mudando de posição durante as tentativas.
 
-Link de facil acesso: https://tokyow1tch.github.io/Mini-Games-Button/
+### Não Aperte o Botão Vermelho
+Um jogo baseado em curiosidade: cada interação com o botão provoca uma nova reação na página.
+
+## O que pratiquei
+
+- JavaScript
+- Manipulação do DOM
+- Eventos
+- HTML e CSS
+- Animações
+- Lógica e estados da aplicação
+- LocalStorage
+
+Ainda pretendo experimentar novas interações e adicionar outros mini jogos ao projeto.
