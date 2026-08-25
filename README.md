@@ -7,3 +7,5 @@ Projetos front-end criados para praticar JavaScript, manipulação do DOM, event
 - Não Aperte o Botão Vermelho
 
 Projetos com proposta descontraída, focados em interação e experimentação.
+
+Link de facil acesso: https://tokyow1tch.github.io/Mini-Games-Button/
