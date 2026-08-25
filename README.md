@@ -1,20 +1,9 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mini Games | Nicoly Ferreira</title>
-<style>
-*{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:Inter,system-ui,sans-serif;background:#0b0b12;color:#f7f3ff;display:grid;place-items:center;overflow:hidden}
-body:before{content:"";position:fixed;inset:-40%;background:conic-gradient(from 0deg,transparent,#8b5cf633,transparent,#ec489933,transparent);animation:spin 18s linear infinite;filter:blur(70px)}
-@keyframes spin{to{transform:rotate(360deg)}} main{position:relative;width:min(920px,92%);z-index:1}
-small{letter-spacing:.18em;color:#c4b5fd}.hero{margin-bottom:28px}.hero h1{font-size:clamp(2.5rem,7vw,5.5rem);margin:.15em 0}.hero p{color:#c9c4d4;font-size:1.1rem}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.card{background:#15131fcc;border:1px solid #ffffff20;border-radius:26px;padding:28px;backdrop-filter:blur(12px);transition:.25s;box-shadow:0 18px 70px #0008}
-.card:hover{transform:translateY(-6px);border-color:#c084fc80}.tag{display:inline-block;border:1px solid #ffffff25;padding:6px 10px;border-radius:999px;font-size:.8rem}.card h2{font-size:1.7rem;margin:18px 0 8px}.card p{color:#bcb6c8;min-height:52px}
-a{display:inline-block;margin-top:12px;color:white;text-decoration:none;background:linear-gradient(90deg,#7c3aed,#db2777);padding:12px 18px;border-radius:12px;font-weight:700}
-@media(max-width:650px){.grid{grid-template-columns:1fr}}
-</style></head><body><main>
-<div class="hero"><small>NICOLY FERREIRA • MINI LAB</small><h1>Jogos pequenos.<br>Caos controlado.</h1><p>Experimentos interativos para praticar front-end sem levar a interface tão a sério.</p></div>
-<div class="grid">
-<section class="card"><span class="tag">JOGO 01</span><h2>O Botão Proibido</h2><p>Capture um botão que não tem a menor intenção de colaborar.</p><a href="botao-proibido/">Jogar →</a></section>
-<section class="card"><span class="tag">JOGO 02</span><h2>Não Aperte o Botão Vermelho</h2><p>Uma instrução simples. Um usuário curioso. Péssimas decisões.</p><a href="botao-vermelho/">Ignorar o aviso →</a></section>
-</div></main></body></html>
+# Mini Games — Nicoly Ferreira
+
+Projetos front-end criados para praticar JavaScript, manipulação do DOM, eventos, animações CSS, lógica de estados e armazenamento local.
+
+## Jogos
+- O Botão Proibido
+- Não Aperte o Botão Vermelho
+
+Projetos com proposta descontraída, focados em interação e experimentação.

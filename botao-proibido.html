@@ -1,0 +1,29 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>O Botão Proibido</title>
+<style>
+*{box-sizing:border-box}body{margin:0;height:100vh;overflow:hidden;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#080b12;color:#e9f7ff}
+.bg{position:fixed;inset:0;background:radial-gradient(circle at 20% 20%,#6d28d930,transparent 30%),radial-gradient(circle at 80% 70%,#0891b230,transparent 32%);animation:pulse 5s ease-in-out infinite alternate}@keyframes pulse{to{filter:hue-rotate(35deg);transform:scale(1.06)}}
+.top{position:fixed;top:18px;left:20px;right:20px;display:flex;justify-content:space-between;color:#91a4b7;font-size:.85rem}.arena{position:relative;width:100%;height:100%;display:grid;place-items:center}
+.panel{text-align:center;max-width:650px;padding:24px}.panel h1{font-size:clamp(2rem,6vw,4.5rem);margin:.2em}.panel p{color:#9fb0c2}.meter{height:9px;background:#17202b;border-radius:9px;overflow:hidden;margin:22px auto;width:min(380px,80%)}#bar{height:100%;width:100%;background:linear-gradient(90deg,#22d3ee,#a855f7);transition:.3s}
+#target{position:absolute;border:0;padding:16px 24px;border-radius:14px;background:#eafaff;color:#071019;font-weight:900;cursor:pointer;box-shadow:0 0 30px #67e8f955;transition:left .12s,top .12s,transform .15s}
+#msg{min-height:48px}.final{display:none;background:#101724e8;border:1px solid #ffffff20;border-radius:24px;padding:30px;box-shadow:0 25px 90px #000}.final b{color:#67e8f9}.again{border:0;border-radius:10px;padding:12px 16px;cursor:pointer;font-weight:800}
+</style></head><body><div class="bg"></div><div class="top"><span>SECURITY.EXE</span><span id="tries">TENTATIVAS: 0</span></div><div class="arena">
+<div class="panel" id="intro"><div>⚠ SISTEMA DE SEGURANÇA</div><h1>Não clique no botão.</h1><p id="msg">Existe apenas uma regra. Parece fácil.</p><div class="meter"><div id="bar"></div></div></div>
+<button id="target">NÃO CLIQUE AQUI</button>
+<div class="final" id="final"><div>✓ BOTÃO CAPTURADO</div><h1>Persistência detectada.</h1><p>Tentativas: <b id="ftries"></b><br>Tempo: <b id="ftime"></b><br>Respeito pelas instruções: <b>0%</b><br>Rank: <b id="rank"></b></p><button class="again" onclick="location.reload()">Jogar novamente</button></div>
+</div><script>
+const b=document.querySelector('#target'), msg=document.querySelector('#msg'), bar=document.querySelector('#bar'), triesEl=document.querySelector('#tries');
+let tries=0,start=Date.now(),escapes=0;
+const lines=["Eu literalmente pedi uma coisa.","Persistência detectada.","Você sabe que existem outros sites, né?","Ok. Agora virou questão pessoal.","O botão pediu férias.","Isso já é perseguição digital.","BOSS MODE desbloqueado."];
+function move(){
+ tries++; escapes++; triesEl.textContent="TENTATIVAS: "+tries;
+ msg.textContent=lines[Math.min(escapes-1,lines.length-1)];
+ bar.style.width=Math.max(5,100-escapes*12)+"%";
+ const pad=90,x=Math.random()*(innerWidth-pad*2)+pad/2,y=Math.random()*(innerHeight-pad*2)+pad/2;
+ b.style.left=x+"px";b.style.top=y+"px";b.style.transform=`translate(-50%,-50%) rotate(${(Math.random()-.5)*18}deg) scale(${Math.max(.72,1-escapes*.025)})`;
+ if(escapes>=7)b.textContent="VOCÊ NÃO VAI CLICAR.";
+ if(escapes>=11){b.removeEventListener('pointerenter',move);b.textContent="OK. TENTA.";msg.textContent="Sistema cansou. Sua chance."}
+}
+b.style.left="50%";b.style.top="67%";b.style.transform="translate(-50%,-50%)";
+b.addEventListener('pointerenter',move);
+b.addEventListener('click',()=>{if(escapes<11){move();return} document.querySelector('#intro').style.display='none';b.style.display='none';let sec=Math.round((Date.now()-start)/1000);document.querySelector('#ftries').textContent=tries+1;document.querySelector('#ftime').textContent=sec+"s";document.querySelector('#rank').textContent=sec<25?"S — Caçador de Botões":sec<45?"A — Persistente":"B — Quase desistiu";document.querySelector('#final').style.display='block';localStorage.setItem('botaoProibidoBest',Math.min(sec,+(localStorage.getItem('botaoProibidoBest')||9999)))});
+</script></body></html>

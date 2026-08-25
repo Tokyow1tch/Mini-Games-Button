@@ -1,0 +1,20 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Não Aperte o Botão Vermelho</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#111;color:#eee;font-family:Inter,system-ui,sans-serif;display:grid;place-items:center;overflow:hidden;transition:.5s}.wrap{text-align:center;width:min(760px,90%);position:relative;z-index:2}
+h1{font-size:clamp(2rem,6vw,4rem);margin:.2em}#speech{color:#aaa;min-height:50px;font-size:1.05rem}.button{width:190px;height:190px;border-radius:50%;border:12px solid #5b0b0b;background:radial-gradient(circle at 35% 28%,#ff7777,#e00000 38%,#850000 72%);box-shadow:0 16px 0 #410707,0 25px 50px #000,0 0 50px #ff000025;cursor:pointer;transition:.12s;font-weight:900;color:white;font-size:1.1rem}
+.button:active{transform:translateY(12px);box-shadow:0 4px 0 #410707,0 10px 30px #000}.count{margin-top:34px;color:#666}.glitch{animation:glitch .12s infinite}@keyframes glitch{0%{transform:translate(0)}25%{transform:translate(4px,-2px)}50%{transform:translate(-3px,3px)}75%{transform:translate(2px,2px)}}.tiny{transform:scale(.5)}.spin{animation:spin 1.2s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}#achievement{position:fixed;right:20px;bottom:20px;background:#222;border:1px solid #444;padding:14px 18px;border-radius:12px;transform:translateY(150%);transition:.35s}#achievement.show{transform:none}
+</style></head><body><div class="wrap"><div id="label">EXPERIMENTO Nº 02</div><h1 id="title">Não aperte o botão vermelho.</h1><p id="speech">É só isso. Não tem pegadinha.</p><button class="button" id="red">NÃO APERTE</button><div class="count" id="count">Cliques irresponsáveis: 0</div></div><div id="achievement"></div>
+<script>
+let n=0;const btn=document.querySelector('#red'),s=document.querySelector('#speech'),title=document.querySelector('#title'),count=document.querySelector('#count'),ach=document.querySelector('#achievement');
+const lines=["...","Interessante. Você ignorou uma instrução de quatro palavras.","Talvez tenha sido acidente. Não faça de novo.","Você fez de novo.","Estou começando a entender o problema.","Curiosidade: 10. Autocontrole: 0.","O botão não dá prêmio. Eu prometo.","Por que você ainda está aqui?","Ok, agora vou dificultar.","Você apertou mesmo assim? Impressionante.","ALERTA: excesso de curiosidade.","O sistema desistiu de argumentar.","Parabéns. Você venceu absolutamente nada."];
+function achievement(t){ach.textContent="CONQUISTA: "+t;ach.classList.add('show');setTimeout(()=>ach.classList.remove('show'),1800)}
+btn.onclick=()=>{n++;count.textContent="Cliques irresponsáveis: "+n;s.textContent=lines[Math.min(n-1,lines.length-1)];
+if(n==3)achievement("Não aprende fácil");
+if(n==5){document.body.style.background="#190b21";achievement("Persistência questionável")}
+if(n==7){btn.classList.add('tiny');btn.textContent="AINDA NÃO";achievement("Caçador de pixels")}
+if(n==9){btn.classList.remove('tiny');btn.classList.add('spin');achievement("Isso virou esporte")}
+if(n==10){btn.classList.remove('spin');document.body.classList.add('glitch');setTimeout(()=>document.body.classList.remove('glitch'),900)}
+if(n==12){title.textContent="Tá bom. Você venceu.";btn.textContent="APERTE À VONTADE";btn.style.width="230px";btn.style.height="230px";achievement("Inimigo das instruções")}
+if(n>=15){s.textContent="Final secreto desbloqueado: o verdadeiro botão vermelho eram as decisões ruins que tomamos pelo caminho.";title.textContent="FIM (?)";localStorage.setItem('redButtonEnding','unlocked')}
+};
+</script></body></html>
